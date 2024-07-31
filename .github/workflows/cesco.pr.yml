@@ -1,0 +1,20 @@
+name: Cesco PR
+
+permissions:
+  contents: read
+  packages: write
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  service-test:
+    name: Validate PR
+    uses: './.github/workflows/validate.pr.yml'
+    with:
+      service: cesco
+      working-directory: './'
+      
